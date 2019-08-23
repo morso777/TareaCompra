@@ -1,25 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" ignored="0" total="0" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="6488" started-at="2019-08-12T23:23:58Z" finished-at="2019-08-12T23:24:04Z">
+  <suite name="Default suite" duration-ms="25" started-at="2019-08-22T10:33:51Z" finished-at="2019-08-22T10:33:51Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="6488" started-at="2019-08-12T23:23:58Z" finished-at="2019-08-12T23:24:04Z">
-      <class name="obtenerRequest.obtenerData">
-        <test-method status="PASS" signature="corto()[pri:0, instance:obtenerRequest.obtenerData@83b407]" name="corto" duration-ms="5602" started-at="2019-08-12T23:23:58Z" finished-at="2019-08-12T23:24:03Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- corto -->
-        <test-method status="PASS" signature="largo()[pri:0, instance:obtenerRequest.obtenerData@83b407]" name="largo" duration-ms="400" started-at="2019-08-12T23:24:03Z" finished-at="2019-08-12T23:24:04Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- largo -->
-        <test-method status="PASS" signature="testResponsecode()[pri:0, instance:obtenerRequest.obtenerData@83b407]" name="testResponsecode" duration-ms="367" started-at="2019-08-12T23:24:04Z" finished-at="2019-08-12T23:24:04Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testResponsecode -->
-      </class> <!-- obtenerRequest.obtenerData -->
+    <test name="Default test" duration-ms="25" started-at="2019-08-22T10:33:51Z" finished-at="2019-08-22T10:33:51Z">
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
