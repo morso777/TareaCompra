@@ -33,6 +33,16 @@ public class TestCreditCard {
 		//select "Tus opciones"
 		driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[1]/div[2]/button")).click();
 		driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[1]/div[2]/div/ul/li[5]/a")).click();
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		
+		//Select tipo de viaje
+		driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[2]/div/div[2]/button")).click();
+		driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[2]/div/div[2]/div/ul/li[5]/a")).click();
+				
+		//Select Destino
+		driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[8]/div/div[2]/button")).click();	
+		driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[8]/div/div[2]/div[1]/ul/li[4]/a")).click();
+		driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[8]/div/div[2]/button")).click();
 		
 		//select date from-to
 		driver.findElement(By.xpath ("//*[@id='travelDatesFrom']")).click();
@@ -42,12 +52,20 @@ public class TestCreditCard {
 		driver.findElement(By.xpath ("//*[@id='travelDatesTo']")).sendKeys("03/11/2019");
 		
 		
-		//select travelers
+		//select viajeros
 		driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[12]/div[1]/div[2]/button")).click();
 		driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[12]/div[1]/div[2]/div/ul/li[4]/a")).click();
 		
 		//Wait
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		
+		//Enter Edad and Precio del viaje
+		driver.findElement(By.xpath("//*[@id='ageAtDeparture1']")).click();
+		driver.findElement(By.xpath("//*[@id='ageAtDeparture1']")).sendKeys("39");
+		
+		driver.findElement(By.xpath("//*[@id='pricePerPerson1']")).click();
+		driver.findElement(By.xpath("//*[@id='pricePerPerson1']")).sendKeys("1000");
+		
 
 		//Click submit
 		driver.findElement(By.id("submit")).click();
