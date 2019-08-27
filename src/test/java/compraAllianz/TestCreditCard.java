@@ -12,8 +12,8 @@ import org.testng.annotations.Test;
 
 public class TestCreditCard {
 	
-	    @Test
-		public static void main(String[] args) throws InterruptedException {
+	    @Test 
+	    public static void main(String[] args) throws InterruptedException {
 		
 		// Create a new instance of the chrome driver
 		String service = "D:\\PROGRAMAS\\Browser driver\\chromedriver.exe";
@@ -45,10 +45,7 @@ public class TestCreditCard {
 		driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[8]/div/div[2]/button")).click();
 		
 		//select date from-to
-		driver.findElement(By.xpath ("//*[@id='travelDatesFrom']")).click();
 		driver.findElement(By.xpath ("//*[@id='travelDatesFrom']")).sendKeys("01/11/2019");
-		
-		driver.findElement(By.xpath ("//*[@id='travelDatesTo']")).click();
 		driver.findElement(By.xpath ("//*[@id='travelDatesTo']")).sendKeys("03/11/2019");
 		
 		
@@ -66,11 +63,46 @@ public class TestCreditCard {
 		driver.findElement(By.xpath("//*[@id='pricePerPerson1']")).click();
 		driver.findElement(By.xpath("//*[@id='pricePerPerson1']")).sendKeys("1000");
 		
-
 		//Click submit
 		driver.findElement(By.id("submit")).click();
-}
-}
+		
+		//Wait
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	   
+		
+		//Step Importe
+	       
+	    driver.findElement(By.xpath("//*[@id='step-2']/ng-include[1]/div/span/div[1]/ng-include/div/ng-include[2]/div/button")).click();
+	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	    
+	    //Step Datos del viaje
+	    //Enter name
+	    driver.findElement(By.xpath("//*[@id='billingFirstName']")).sendKeys("Hiran");
+	    driver.findElement(By.xpath("//*[@id='billingLastName']")).sendKeys("pena");
+	  
+	    //enter identificacion
+	    driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[5]/div[4]/div[1]/div[1]/button")).click();
+	    driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[5]/div[4]/div[1]/div[1]/div/ul/li[2]/a")).click();
+	    driver.findElement(By.xpath("//*[@id='billingVat']")).sendKeys("Y6466925Y");
+	   
+	    //enter Direccion 
+	    driver.findElement(By.xpath("//*[@id='billingAddress']")).sendKeys("Antoni Torrella");
+	    driver.findElement(By.xpath("//*[@id='submit']")).click();
+	    
+	    //enter Fecha de Nacimiento
+	    driver.findElement(By.xpath("//*[@id='dateOfBirth1']]")).click();
+	    //*[@id="dateOfBirth1"]
+	    
+	    
+	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	  //Close the driver
+		driver.quit();
+	    
+		}
+		
+	}
+	    
+
 
          //WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[1]/div[2]/button"));
 		//Select dropdown = new Select (element);
