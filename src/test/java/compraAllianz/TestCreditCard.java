@@ -91,8 +91,7 @@ public class TestCreditCard {
 	    
 	    //enter Fecha de Nacimiento
 	    driver.findElement(By.xpath("//*[@id='dateOfBirth1']]")).click();
-	    //*[@id="dateOfBirth1"]
-	    
+	    ///html/body/div[4]/div[3]/table/tbody/tr/td/span[11]
 	    
 	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	  //Close the driver
