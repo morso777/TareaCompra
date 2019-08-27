@@ -15,22 +15,46 @@ public class TestCreditCard {
 	    @Test
 		public static void main(String[] args) throws InterruptedException {
 		
-		// Create a new instance of the Internet Explorer driver
+		// Create a new instance of the chrome driver
 		String service = "D:\\PROGRAMAS\\Browser driver\\chromedriver.exe";
 		System.setProperty("webdriver.chrome.driver", service);
 		ChromeDriver driver = new ChromeDriver();	 	
 		
-		 
-		// size = driver.findElements(By.tagName("iframe")).size();
+		//open url  
 		driver.get("https://b2c-es.uat.booking.allianz-assistance.com/iframe.html?angularparams=/TRAVEL/B2C/ES/es_ES/step-1");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		int size =driver.findElements(By.tagName("iframe")).size();
 		System.out.println("Total frames in page= "+size );
-		 
+		
+		//select iframe		
 		driver.switchTo().frame("booking-iframe-id");
 		
-		//WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[1]/div[2]/button"));
+		//select "Tus opciones"
+		driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[1]/div[2]/button")).click();
+		driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[1]/div[2]/div/ul/li[5]/a")).click();
+		
+		//select date from-to
+		driver.findElement(By.xpath ("//*[@id='travelDatesFrom']")).click();
+		driver.findElement(By.xpath ("//*[@id='travelDatesFrom']")).sendKeys("01/11/2019");
+		
+		driver.findElement(By.xpath ("//*[@id='travelDatesTo']")).click();
+		driver.findElement(By.xpath ("//*[@id='travelDatesTo']")).sendKeys("03/11/2019");
+		
+		
+		//select travelers
+		driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[12]/div[1]/div[2]/button")).click();
+		driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[12]/div[1]/div[2]/div/ul/li[4]/a")).click();
+		
+		//Wait
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+
+		//Click submit
+		driver.findElement(By.id("submit")).click();
+}
+}
+
+         //WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[1]/div[2]/button"));
 		//Select dropdown = new Select (element);
 		
 		//Select dropdown = new Select(driver.findElement(By.id("typeOfCover")));
@@ -41,11 +65,6 @@ public class TestCreditCard {
 		//Select dropdown = new Select(driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[1]/div[2]")));
 		
 		//driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[1]/div[2]")).click();
-		driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[1]/div[2]/button")).click();
-		
-		//dropdown.selectByVisibleText("Vacaciones");
+
+        //dropdown.selectByVisibleText("Vacaciones");
 		//dropdown.selectByIndex(3);
-		// driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-		//driver.findElement(By.id("submit")).click();
-}
-}
