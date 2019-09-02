@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -18,7 +19,8 @@ public class TestCreditCard {
 		// Create a new instance of the chrome driver
 		String service = "D:\\PROGRAMAS\\Browser driver\\chromedriver.exe";
 		System.setProperty("webdriver.chrome.driver", service);
-		ChromeDriver driver = new ChromeDriver();	 	
+		ChromeDriver driver = new ChromeDriver();	
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		
 		//open url  
 		driver.get("https://b2c-es.uat.booking.allianz-assistance.com/iframe.html?angularparams=/TRAVEL/B2C/ES/es_ES/step-1");
@@ -73,9 +75,18 @@ public class TestCreditCard {
 		//Step Importe
 	       
 	    driver.findElement(By.xpath("//*[@id='step-2']/ng-include[1]/div/span/div[1]/ng-include/div/ng-include[2]/div/button")).click();
+	    							
 	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	    
 	    //Step Datos del viaje
+	    //enter Fecha de Nacimiento
+	    driver.findElement(By.xpath("//*[@id='dateOfBirth1']")).click();	  
+	    driver.findElement(By.xpath("/html/body/div[4]/div[3]/table/tbody/tr/td/span[11]")).click();
+	    driver.findElement(By.xpath("/html/body/div[4]/div[2]/table/tbody/tr/td/span[11]")).click();
+	    driver.findElement(By.xpath("/html/body/div[4]/div[3]/table/tbody/tr/td/span[11]")).click();
+	    //driver.findElement(By.xpath("/html/body/div[4]/div[1]/table/tbody/tr[4]/td[7]")).click();
+	    //driver.findElement(By.xpath("/html/body/div[4]/div[1]/table/tbody/tr[4]/td[6]")).click();
+	    		
 	    //Enter name
 	    driver.findElement(By.xpath("//*[@id='billingFirstName']")).sendKeys("Hiran");
 	    driver.findElement(By.xpath("//*[@id='billingLastName']")).sendKeys("pena");
@@ -87,33 +98,36 @@ public class TestCreditCard {
 	   
 	    //enter Direccion 
 	    driver.findElement(By.xpath("//*[@id='billingAddress']")).sendKeys("Antoni Torrella");
-	    driver.findElement(By.xpath("//*[@id='submit']")).click();
 	    
-	    //enter Fecha de Nacimiento
-	    driver.findElement(By.xpath("//*[@id='dateOfBirth1']]")).click();
-	    ///html/body/div[4]/div[3]/table/tbody/tr/td/span[11]
+	    //scroll down
+	    	    
+	    js.executeScript("window.scrollBy(0,1000)");
+	 
+	    
+	    //Enter codigo postal
+	    driver.findElement(By.xpath("//*[@id='billingZipCode']")).sendKeys("08224");
+	    
+	    //Enter ciudad
+	    driver.findElement(By.xpath("//*[@id='billingCity']")).sendKeys("Terrassa");
+	    
+	    //Enter provincia
+	    driver.findElement(By.xpath("//*[@id='billingProvince']")).sendKeys("Barcelona");
+	    
+	    //Enter Telefono
+	    driver.findElement(By.xpath("//*[@id='billingPhoneNumber']")).sendKeys("123456789");
+	    
+	    //Enter email
+	    driver.findElement(By.xpath("//*[@id='billingEmail']")).sendKeys("mail@hotmail.com");
+	    
+	    //Click Confirmar
+	    driver.findElement(By.id("submit")).click();
 	    
 	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	  //Close the driver
-		driver.quit();
+	    //Close the driver
+		//driver.quit();
 	    
 		}
 		
 	}
 	    
 
-
-         //WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[1]/div[2]/button"));
-		//Select dropdown = new Select (element);
-		
-		//Select dropdown = new Select(driver.findElement(By.id("typeOfCover")));
-		//Select dropdown = new Select(driver.findElement(By.className("btn dropdown-toggle btn-default")));
-		
-	
-		//(driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[1]/div[2]/button")));
-		//Select dropdown = new Select(driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[1]/div[2]")));
-		
-		//driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[3]/div/div/div/div/form/div[1]/div[2]")).click();
-
-        //dropdown.selectByVisibleText("Vacaciones");
-		//dropdown.selectByIndex(3);
